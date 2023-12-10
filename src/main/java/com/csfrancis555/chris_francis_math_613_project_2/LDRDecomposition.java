@@ -27,16 +27,16 @@ public class LDRDecomposition {
      * @param A the matrix to be decomposed
      */
     public LDRDecomposition(Matrix A) {
-        double[][] zeros = new double[A.getM()][A.getN()];
-        for(int i=0; i<A.getMatrix().length; i++){
-            for(int j=0; j<A.getMatrix()[i].length; j++){
-                zeros[i][j] = 0;
-            }
-        }
-        L = new Matrix(zeros);
-        D = new Matrix(zeros);
-        R = new Matrix(zeros);
-        inverseD = new Matrix(zeros);
+//        double[][] zeros = new double[A.getM()][A.getN()];
+//        for(int i=0; i<A.getMatrix().length; i++){
+//            for(int j=0; j<A.getMatrix()[i].length; j++){
+//                zeros[i][j] = 0;
+//            }
+//        }
+        L = new Matrix(A.getM(), A.getN());
+        D = new Matrix(A.getM(), A.getN());
+        R = new Matrix(A.getM(), A.getN());
+        inverseD = new Matrix(A.getM(), A.getN());
         for(int i=0; i<A.getMatrix().length; i++){
             for(int j=0; j<A.getMatrix()[i].length; j++){
                 if(i < j){
@@ -50,6 +50,7 @@ public class LDRDecomposition {
                 }
             }
         }
+        System.out.println(inverseD);
         for(int i=0; i<D.getMatrix().length; i++){
             for(int j=0; j<D.getMatrix()[i].length; j++){
                 if(D.getValue(i, j) != 0){
