@@ -18,8 +18,8 @@ public class Chris_Francis_Math_613_Project_2 {
         b.fillFromCSV("vector.csv");
         
         SuccessiveOverRelaxation SOR = new SuccessiveOverRelaxation(A, b);
-        
-        System.out.println(SOR.getV());
+        SOR.optimize();
+        System.out.println(SOR);
         
     }//end main()
 }//end Main Class
