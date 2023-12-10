@@ -27,7 +27,7 @@ public class SuccessiveOverRelaxation {
         this.A = A;
         this.b = b;
         this.v = new Vector(b.getN());
-        updateSpread(0, 2);
+        updateSpread(1, 2);
         resetVector();
         
     }//end 2-arg constructor
@@ -98,7 +98,7 @@ public class SuccessiveOverRelaxation {
             for(int i=0; i<x.getN(); i++){
                 x.setValue(i, b.getValue(i));
                 for(int j=0; j<x.getN(); j++){
-                    x.setValue(i, x.getValue(i) - A.getValue(i, j)*x.getValue(j));
+                    x.setValue(i, x.getValue(i) - A.getValue(i, j)*x.getValue(i));
                 }
                 x.setValue(i, x.getValue(i) + w * x.getValue(i) / A.getValue(i, i));
             }
